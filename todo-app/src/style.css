@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+input:checked~.dot {
+    transform: translateX(100%);
+}

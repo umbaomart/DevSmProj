@@ -3,11 +3,13 @@ export function toggleDarkMode() {
     let themeMode = checkLocalStorageTheme()
     let darkModeMediaQuery: { matches: boolean } = window.matchMedia('(prefers-color-scheme: dark)');
     const isDarkMode: boolean = darkModeMediaQuery.matches;
+    const darkToggleInput = document.getElementById<HTMLInputElement>('dark-toggle')!;
+    const isModeType = checkLocalStorageTheme() === 'Dark' ? true : false
 
-    themeMode === null && setTheme(isDarkMode);
+    themeMode === null ? setTheme(isDarkMode) : setTheme(isModeType);
 
-    // Event listener for changing theme mode
-    darkModeMediaQuery.addEventListener('change', handleThemeChange);
+    darkToggleInput.addEventListener('click', toggleThemeMode);
+    darkModeMediaQuery.onchange = handleThemeChange;
 }
 
 function handleThemeChange() {
@@ -23,6 +25,7 @@ function checkLocalStorageTheme(): string | null {
         document.documentElement.classList.add('dark') :
         document.documentElement.classList.remove('dark');
 
+
     return themeMode;
 }
 
@@ -33,6 +36,13 @@ function setTheme(modeType: boolean) {
     const systemTheme: string = modeType === true ? 'Dark' : 'Light';
     textThemeMode__div.innerText = systemTheme ? systemTheme + ' Theme' : '';
 
+    const darkToggle = document.getElementById<HTMLInputElement>('dark-toggle')!;
+
+    // Set checkbox to checked
+    if (modeType) {
+        darkToggle.checked = true;
+    }
+
     // Set theme to localStorage
     localStorage.setItem('theme', systemTheme);
 
@@ -40,4 +50,17 @@ function setTheme(modeType: boolean) {
     systemTheme === "Dark" ?
         document.documentElement.classList.add('dark') :
         document.documentElement.classList.remove('dark');
+}
+
+function toggleThemeMode() {
+    const currentMode = checkLocalStorageTheme();
+    const isModeType = currentMode === 'Dark' ? true : false;
+
+    if(isModeType) {
+        setTheme(!isModeType);
+        document.querySelector<HTMLElement>("html")?.classList.remove("dark");
+    } else {
+        setTheme(!isModeType);
+        document.querySelector<HTMLElement>("html")?.classList.add("dark");
+    }
 }
