@@ -10,9 +10,9 @@
 
 <body class="bg-slate-600">
   <div id="app" class="flex justify-center items-center">
-    <div class="w-[450px] md:w-[450px] sm:w-[100%]">
+    <div class="w-[450px] md:w-[450px] sm:w-[100%] bg-white dark:bg-gray-900 p-5">
       <!-- Navigation -->
-      <div class="bg-white dark:bg-gray-900 flex justify-between items-start p-5 min-h-screen">
+      <div class="flex justify-between items-start">
         <h1 class="dark:text-white text-gray-900 font-bold text-2xl">Tasks</h1>
         <div class="">
           <div class="flex flex-row justify-between toggle">
@@ -32,9 +32,22 @@
       <!-- End of Navigation -->
 
       <!-- Main -->
-      <div class="w-100%">
-        <form action="">
+      <div class="pt-5">
+        <form action="" class="w-100% flex justify-start items-center mb-2">
+          <label for="notes" class="dark:text-white text-gray-900 font-medium text-lg">Notes</label"></label>
+          <input type="text" name="notes" id="notes" class="bg-transparent border-b-[1px] border-gray-400 dark:border-white-900 flex-1 ml-2 dark:text-white text-gray-900 text-lg tracking-wide active:bg-none focus:outline-none">
         </form>
+        <div class="my-8 border[1px] border-gray-400 dark:border-gray-900 border-t-[1px]"></div>
+        <div class="">
+          <ul>
+            <li>
+              <div class="flex items-start items-start mb-4">
+                <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded mt-1">
+                <label for="checkbox-1" class="text-md ml-3 font-medium text-gray-900 dark:text-white">I agree to the terms and conditions</label>
+            </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
