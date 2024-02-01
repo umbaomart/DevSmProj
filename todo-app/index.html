@@ -10,10 +10,10 @@
 
 <body class="bg-slate-600">
   <div id="app" class="flex justify-center items-center">
-    <div class="w-[450px] md:w-[450px] sm:w-[100%] bg-white dark:bg-gray-900 p-5">
+    <div class="w-[505px] md:w-[505px] sm:w-[100%] bg-white dark:bg-gray-900 p-[64px] pb-[121px] my-[40px] rounded-[12px]">
       <!-- Navigation -->
-      <div class="flex justify-between items-start">
-        <h1 class="dark:text-white text-gray-900 font-bold text-2xl">Tasks</h1>
+      <div class="flex justify-between items-center">
+        <h1 class="dark:text-white text-gray-900 font-bold text-[56px] leading-normal">Tasks</h1>
         <div class="">
           <div class="flex flex-row justify-between toggle">
             <label for="dark-toggle" class="flex items-center cursor-pointer">
@@ -33,18 +33,23 @@
 
       <!-- Main -->
       <div class="pt-5">
-        <form action="" class="w-100% flex justify-start items-center mb-2">
-          <label for="notes" class="dark:text-white text-gray-900 font-medium text-lg">Notes</label"></label>
-          <input type="text" name="notes" id="notes" class="bg-transparent border-b-[1px] border-gray-400 dark:border-white-900 flex-1 ml-2 dark:text-white text-gray-900 text-lg tracking-wide active:bg-none focus:outline-none">
+        <form action="" class="w-100% mb-8">
+          <label for="notes" class="dark:text-white text-gray-900 font-medium text-lg block">Notes</label>
+          <input type="text" name="notes" id="notes" class="bg-transparent border-b-[1px] border-gray-400 dark:border-white-900 w-[100%] dark:text-white text-gray-900 text-lg tracking-wide active:bg-none focus:outline-none block mt-3">
         </form>
-        <div class="my-8 border[1px] border-gray-400 dark:border-gray-900 border-t-[1px]"></div>
         <div class="">
-          <ul>
+          <ul class="flex flex-col justify-start gap-8">
             <li>
-              <div class="flex items-start items-start mb-4">
-                <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded mt-1">
-                <label for="checkbox-1" class="text-md ml-3 font-medium text-gray-900 dark:text-white">I agree to the terms and conditions</label>
-            </div>
+              <div class="flex items-start items-start">
+                <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox" class="bg-[#DADADA] border-[#DADADA] focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded mt-1">
+                <label for="checkbox-1" class="text-md ml-[10px] font-medium text-[#575767] dark:text-white">I agree to the terms and conditions</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-start items-start">
+                <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox" class="bg-[#DADADA] border-[#DADADA] focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded mt-1">
+                <label for="checkbox-1" class="text-md ml-[10px] font-medium text-[#575767] dark:text-white">I agree to the terms and conditions</label>
+              </div>
             </li>
           </ul>
         </div>
