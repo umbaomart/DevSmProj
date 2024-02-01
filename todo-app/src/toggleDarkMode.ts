@@ -1,9 +1,9 @@
 export function toggleDarkMode() {
 
     let themeMode = checkLocalStorageTheme()
-    let darkModeMediaQuery: { matches: boolean } = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkModeMediaQuery: { matches: boolean, onchange: any } = window.matchMedia('(prefers-color-scheme: dark)');
     const isDarkMode: boolean = darkModeMediaQuery.matches;
-    const darkToggleInput = document.getElementById<HTMLInputElement>('dark-toggle')!;
+    const darkToggleInput = document.getElementById('dark-toggle')! as HTMLInputElement;
     const isModeType = checkLocalStorageTheme() === 'Dark' ? true : false
 
     themeMode === null ? setTheme(isDarkMode) : setTheme(isModeType);
@@ -30,13 +30,13 @@ function checkLocalStorageTheme(): string | null {
 }
 
 function setTheme(modeType: boolean) {
-    const textThemeMode__div = document.getElementById<HTMLDivElement>('js--themeMode')!;
+    const textThemeMode__div = document.getElementById('js--themeMode')! as HTMLDivElement;
 
     // Check theme if it's dark or light
     const systemTheme: string = modeType === true ? 'Dark' : 'Light';
     textThemeMode__div.innerText = systemTheme ? systemTheme + ' Theme' : '';
 
-    const darkToggle = document.getElementById<HTMLInputElement>('dark-toggle')!;
+    const darkToggle = document.getElementById('dark-toggle')! as HTMLInputElement;
 
     // Set checkbox to checked
     if (modeType) {
