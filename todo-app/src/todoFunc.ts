@@ -8,12 +8,18 @@ export function todoFunc() {
     }
 
     /** Global Variables */
-    let todos: any[] = [];
     const todoForm = document.querySelector('#js--todoForm')! as HTMLFormElement;
+    let todos: Todo[] = loadTodos();
+
+    todos.forEach((todo) => renderTodos(todo));
 
     /** Event Listeners */
     todoForm.addEventListener('submit', handleOnSubmit);
 
+    function loadTodos() {
+        const todoData = localStorage.getItem('todos');
+        return todoData ? JSON.parse(todoData) : [];
+    }
 
     /** Functions */
     function handleOnSubmit(e: Event) {
@@ -38,6 +44,7 @@ export function todoFunc() {
 
         // Add new object to todos
         todos.push(newTodo);
+        saveTodosLocalStorage();
         renderTodos(newTodo);
         notesInput.value = '';
     }
@@ -55,6 +62,7 @@ export function todoFunc() {
         todoItemLabel.classList.add('flex', 'items-start', 'has-[:checked]:line-through');
         todoItemInput.setAttribute('type', 'checkbox');
         todoItemInput.setAttribute('id', todo.id);
+        todoItemInput.checked = todo.complete;
         todoItemInput.classList.add('bg-[#DADADA]', 'border-[#DADADA]', 'focus:ring-3', 'focus:ring-blue-300', 'h-4', 'w-4', 'rounded', 'mt-1');
         todoItemText.classList.add('text-md', 'ml-[10px]', 'font-medium', 'text-[#575767]', 'dark:text-white');
         todoItemText.innerHTML = todo.name;
@@ -67,11 +75,13 @@ export function todoFunc() {
         todoItemInput.addEventListener('change', () => {
             todo.complete = !todo.complete;
             todoItemInput.checked = todo.complete;
+            saveTodosLocalStorage();
         })
 
         todoDeleteBtn.addEventListener('click', () => {
             todos = todos.filter(t => t.id !== todo.id);
             todoLi.remove();
+            saveTodosLocalStorage();
         })
 
         todoItemLabel.appendChild(todoItemInput);
@@ -79,5 +89,9 @@ export function todoFunc() {
         todoLi.appendChild(todoDeleteBtn);
         todoLi.appendChild(todoItemLabel);
         todoList.appendChild(todoLi);
+    }
+
+    function saveTodosLocalStorage() {
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 }
