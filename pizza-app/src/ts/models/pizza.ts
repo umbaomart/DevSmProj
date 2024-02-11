@@ -1,6 +1,6 @@
-import {DataResource} from "../services/DataResource";
+import { DataResource } from "../services/DataResource";
 
-interface PizzaProps {
+export interface PizzaProps {
     title: string;
     description: string;
     toppings: string[];
