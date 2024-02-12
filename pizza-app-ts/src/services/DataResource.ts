@@ -1,11 +1,11 @@
 export class DataResource<T> {
-    constructor(private endpoint: string) {
-    }
+    constructor(private endpoint: string) { }
 
     async loadAll(): Promise<T[]> {
-        const res = await fetch(this.endpoint)
 
-        return res.json()
+        const res = await fetch(this.endpoint);
+
+        return res.json();
     }
 
     async loadOne(id: number): Promise<Response> {
@@ -19,7 +19,7 @@ export class DataResource<T> {
             method: 'DELETE'
         })
 
-        return res
+        return res;
     }
 
     async save(data: T): Promise<Response> {
@@ -31,6 +31,6 @@ export class DataResource<T> {
             }
         })
 
-        return res
+        return res;
     }
 }
