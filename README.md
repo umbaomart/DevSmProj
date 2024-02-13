@@ -4,6 +4,8 @@ I created this Project Repository to enhance and document my coding for building
 
 **Table of content:**
 - [Todo App](#item-one)
+- [CSV Writer](#item-two)
+- [Pizza App](#item-three)
 
 <!-- Headings -->
 <a id="item-one"></a>
@@ -13,3 +15,21 @@ Technology used:
 - TypeScript
 - Tailwind
 
+<a id="item-two"></a>
+### CSV Writer
+Technology used:
+- JS Class
+- TypeScript
+
+#### Dependencies
+- @types/node
+
+<a id="item-three"></a>
+### CSV Writer
+Technology used:
+- Vite
+- JS Class
+- TypeScript
+
+#### Dependencies
+- json-server
