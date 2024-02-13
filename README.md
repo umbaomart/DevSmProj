@@ -25,7 +25,7 @@ Technology used:
 - @types/node
 
 <a id="item-three"></a>
-### CSV Writer
+### Pizza App
 Technology used:
 - Vite
 - JS Class
