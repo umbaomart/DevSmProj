@@ -1,70 +1,59 @@
-const SCROLL_ANIMATION_TRIGGER_CLASSNAME = 'cards__item';
-const SCROLL_VISIBLE_CLASSNAME = 'is-visible';
+const SCROLL_ANIMATION_TRIGGER_CLASS = 'cards__item' as string;
+const SCROLL_VISIBLE_CLASS = 'is-visible' as string;
 
 
-function onItersection(entries, observer) {
+function onIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
 
-  entries.forEach((entry, index) => {
+  entries.forEach((entry: IntersectionObserverEntry, index: number) => {
 
     if (entry.isIntersecting) {
-      // entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
+      const targetEl = entry.target as HTMLElement;
 
-      switch (entry.target !== null) {
+      switch (targetEl !== null) {
 
-        case entry.target.classList.contains('fade-in-up'):
-          entry.target.style.animation = `fade-in-up .5s ease forwards`;
-          entry.target.style.animationDelay = `${(index * .5) * 100}ms`;
-          entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
+        case targetEl.classList.contains('fade-in-up'):
+          targetEl.style.animation = `fade-in-up .5s ease forwards`;
+          targetEl.style.animationDelay = `${(index * .5) * 100}ms`;
+          targetEl.classList.add(SCROLL_VISIBLE_CLASS);
           break;
 
-        case entry.target.classList.contains('fade-in-left'):
-          entry.target.style.animation = `fade-in-left .5s ease forwards`;
-          entry.target.style.animationDelay = `${(index * .5) * 100}ms`;
-          entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
+        case targetEl.classList.contains('fade-in-left'):
+          targetEl.style.animation = `fade-in-left .5s ease forwards`;
+          targetEl.style.animationDelay = `${(index * .5) * 100}ms`;
+          targetEl.classList.add(SCROLL_VISIBLE_CLASS);
           break;
 
-        case entry.target.classList.contains('fade-in-right'):
-          entry.target.style.animation = `fade-in-right .5s ease forwards`;
-          entry.target.style.animationDelay = `${(index * .5) * 100}ms`;
-          entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
+        case targetEl.classList.contains('fade-in-right'):
+          targetEl.style.animation = `fade-in-right .5s ease forwards`;
+          targetEl.style.animationDelay = `${(index * .5) * 100}ms`;
+          targetEl.classList.add(SCROLL_VISIBLE_CLASS);
           break;
 
-        case entry.target.classList.contains('fade-in-down'):
-          entry.target.style.animation = `fade-in-down .5s ease forwards`;
-          entry.target.style.animationDelay = `${(index * .5) * 100}ms`;
-          entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
+        case targetEl.classList.contains('fade-in-down'):
+          targetEl.style.animation = `fade-in-down .5s ease forwards`;
+          targetEl.style.animationDelay = `${(index * .5) * 100}ms`;
+          targetEl.classList.add(SCROLL_VISIBLE_CLASS);
           break;
 
         default:
-          // observer.unobserve(entry.target);
+          observer.unobserve(targetEl);
           break;
       }
 
-      // // Check if the element has class fade-in-up
-      // if (entry.target.classList.contains('fade-in-up')) {
-      //   entry.target.style.animation = `fade-in-up .5s ease forwards`;
-      //   entry.target.style.animationDelay = `${(index * .5) * 100}ms`;
-      //   entry.target.classList.add(SCROLL_VISIBLE_CLASSNAME);
-
-      //   observer.unobserve(entry.target); // Enable this line if you want to trigger animation only once
-      // } else {
-      // }
-
     } else {
-      entry.target.classList.remove(SCROLL_VISIBLE_CLASSNAME);
+      entry.target.classList.remove(SCROLL_VISIBLE_CLASS);
     }
-    // console.log(entry.target.style.animationDelay);
   });
 }
 
-function initializeScrollAnimationTrigger(rootEl = document) {
-  const scrollAnimationTriggerElList = Array.from(rootEl.getElementsByClassName(SCROLL_ANIMATION_TRIGGER_CLASSNAME));
+function initializeScrollAnimationTrigger(rootEl = document as Document) {
+  const scrollAnimationTriggerElList = Array.from(rootEl.getElementsByClassName(SCROLL_ANIMATION_TRIGGER_CLASS)) as HTMLElement[];
 
   if (!scrollAnimationTriggerElList.length) {
     return;
   }
 
-  const observer = new IntersectionObserver(onItersection, {
+  const observer = new IntersectionObserver(onIntersection, {
     rootMargin: '0%',
   });
 
