@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem 10px;
+  padding: 10rem 0 10rem;
+}
+
+.cards__item {
+  /* opacity: 0; */
+  /* width: calc((100% / 6) - 10px); */
+  width: calc((100% / 3) - 10px);
+  transition: all 0.5s ease-in-out;
+}
+
+.cards__item img {
+  width: 100%;
+}
+
+/* .is-visible {
+animation: fade-in-up 0.5s ease-in-out both;
+}
+
+@keyframes fade-in-up {
+0% {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+100% {
+  opacity: 1;
+  transform: translateY(0);
+}
+} */
+
+.fade-in-up,
+.fade-in-down,
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+}
+
+@keyframes fade-in-up {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
