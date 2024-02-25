@@ -6,6 +6,7 @@ I created this Project Repository to enhance and document my coding for building
 - [Todo App](#item-one)
 - [CSV Writer](#item-two)
 - [Pizza App](#item-three)
+- [Fade In Animation](#item-four)
 
 <!-- Headings -->
 <a id="item-one"></a>
@@ -33,3 +34,10 @@ Technology used:
 
 #### Dependencies
 - json-server
+
+<a id="item-four"></a>
+### Fade In Animation
+Technology used:
+- Vite
+- Intersection Observer
+- TypeScript
